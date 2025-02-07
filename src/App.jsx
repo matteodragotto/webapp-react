@@ -1,14 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { GlobalProvider } from "./context/GlobalContext"
+import DefaultLayout from "./layouts/DefaultLayout"
+import HomePage from "./pages/HomePage"
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route>
-          <Route />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <GlobalProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route Component={DefaultLayout} >
+            <Route path="/" Component={HomePage} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </GlobalProvider>
+
   )
 }
 
