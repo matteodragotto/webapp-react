@@ -3,10 +3,10 @@ import { Outlet } from "react-router-dom"
 const DefaultLayout = () => {
   return (
     <>
-      <header>
-
+      <header className="container my-5">
+        <h1>Bool-Movies</h1>
       </header>
-      <main>
+      <main className="container my-5">
         <Outlet />
       </main>
 

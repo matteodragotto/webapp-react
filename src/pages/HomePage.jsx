@@ -1,6 +1,11 @@
+import MoviesList from "../components/moviesList"
+
 const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <div className="container my-5">
+      <MoviesList />
+    </div>
+
   )
 }
 
