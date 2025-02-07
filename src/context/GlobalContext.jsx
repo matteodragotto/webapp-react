@@ -9,6 +9,8 @@ const GlobalProvider = ({ children }) => {
   const apiUrl = 'http://localhost:3000/movies'
 
   const [movies, setMovies] = useState([])
+  const [reviews, setReviews] = useState([])
+  const [movie, setMovie] = useState({})
 
   const fetchMovies = () => {
     axios.get(apiUrl)
@@ -17,9 +19,22 @@ const GlobalProvider = ({ children }) => {
       })
   }
 
+  const fetchReviews = (id) => {
+    axios.get(`${apiUrl}/${id}`)
+      .then(res => {
+        console.log(res.data.reviews);
+        setReviews(res.data.reviews)
+        setMovie(res.data)
+
+      })
+  }
+
   const value = {
     fetchMovies,
-    movies
+    movies,
+    fetchReviews,
+    reviews,
+    movie
   }
 
   return (

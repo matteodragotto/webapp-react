@@ -3,3 +3,25 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+header {
+  color: #001632;
+  padding: 20px;
+  background-color: #00DF6B;
+}
+
+.card {
+  height: 600px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    top: 0;
+  }
+}
+
+img {
+  width: 500px;
+  height: 700px;
+}
