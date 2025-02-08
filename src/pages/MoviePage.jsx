@@ -29,7 +29,7 @@ const MoviePage = () => {
   return (
     <div className="container my-5">
       <div className="d-flex mb-3">
-        <img src={movie.image} alt={movie.title} />
+        <img className="full-image" src={movie.image} alt={movie.title} />
         <div className="container mx-3 text-center">
 
           <h2><span className="fw-semibold">Titolo: </span> {movie.title}</h2>

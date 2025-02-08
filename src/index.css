@@ -5,14 +5,14 @@
 }
 
 header {
-  color: #001632;
+  color: #00DF6B;
   padding: 20px;
-  background-color: #00DF6B;
+  background-color: #001632;
   font-family: "Bebas Neue", serif;
 
   a {
     text-decoration: none;
-    color: #001632;
+    color: #00DF6B;
   }
 }
 
@@ -29,7 +29,7 @@ main {
   }
 }
 
-img {
+img.full-image {
   width: 500px;
   height: 700px;
 }
