@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useGlobalContext } from "../context/GlobalContext"
 import { useParams, Link } from "react-router-dom"
+import StarReviews from "../components/StarReviews"
 
 
 const MoviePage = () => {
@@ -10,33 +11,46 @@ const MoviePage = () => {
 
   const renderReviews = () => {
     if (!reviews || reviews.length === 0) {
-      return <p>Nessuna recensione disponibile.</p>;
+      return <p className="border">Nessuna recensione disponibile.</p>;
     }
 
-    return reviews.map((review) => <p key={review.id}>{review.text}</p>);
+    return reviews.map((review) => (
+      <div key={review.id} className="border border-success-subtle border-2 rounded p-1">
+        <p className="fw-bold">{review.name}</p>
+        <p>{review.text}</p>
+        <p className="m-0">{StarReviews(review.vote)}</p>
+      </div>
+
+    ))
   }
 
   useEffect(() => fetchReviews(id), [id])
 
   return (
-    <div className="container my-5 d-flex">
-      <img src={movie.image} alt={movie.title} />
-      <div className="p-4">
-        <h1>{movie.title}</h1>
-        <p>{movie.director}</p>
-        <p>{movie.genre}</p>
-        <p>{movie.release_year}</p>
-        <div className="reviews">
-          <h2>Recensioni</h2>
-          {renderReviews()}
+    <div className="container my-5">
+      <div className="d-flex mb-3">
+        <img src={movie.image} alt={movie.title} />
+        <div className="container mx-3 text-center">
+
+          <h2><span className="fw-semibold">Titolo: </span> {movie.title}</h2>
+          <p><span className="fw-semibold">Regista: </span> {movie.director}</p>
+          <p><span className="fw-semibold">Genere: </span>{movie.genre}</p>
+          <p><span className="fw-semibold">Anno di uscita: </span>{movie.release_year}</p>
+          <span className="fw-semibold">Riassunto:</span>
+          <p>{movie.abstract}</p>
+          <Link className="btn btn-primary" to={'/'}>Torna indietro</Link>
         </div>
-        <Link className="btn btn-primary" to={'/'}>Vedi le recensioni</Link>
+      </div>
+      <div className="reviews w-50">
+        <h2 className="text-center">Recensioni</h2>
+        {renderReviews()}
       </div>
 
 
 
 
-    </div>
+
+    </div >
   )
 }
 

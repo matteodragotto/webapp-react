@@ -4,7 +4,7 @@ const DefaultLayout = () => {
   return (
     <>
       <header>
-        <h1>BoolMovies</h1>
+        <a href="/"><h1>BoolMovies</h1></a>
       </header>
       <main className="container my-5">
         <Outlet />
