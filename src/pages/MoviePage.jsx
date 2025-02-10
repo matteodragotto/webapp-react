@@ -1,8 +1,8 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useGlobalContext } from "../context/GlobalContext"
 import { useParams, Link, useNavigate } from "react-router-dom"
-import StarReviews from "../components/StarReviews"
 import AddReview from "../components/AddReview"
+import ReviewsRender from "../components/ReviewsRender"
 
 
 const MoviePage = () => {
@@ -11,18 +11,16 @@ const MoviePage = () => {
   const { id } = useParams()
   const redirect = useNavigate()
 
-  const renderReviews = () => {
+  const printReviews = () => {
+
     if (!reviews || reviews.length === 0) {
       return <p className="border">Nessuna recensione disponibile.</p>;
     }
 
     return reviews.map(review => (
       <div key={review.id} className="border border-success-subtle border-2 rounded p-1 mb-2">
-        <p className="fw-bold">- {review.name}</p>
-        <p>{review.text}</p>
-        <p className="m-0">{StarReviews(review.vote)}</p>
+        <ReviewsRender review={review} />
       </div>
-
     ))
   }
 
@@ -45,7 +43,9 @@ const MoviePage = () => {
       </div>
       <div className="reviews w-50">
         <h2 className="text-center">Recensioni</h2>
-        {renderReviews()}
+        {printReviews()}
+
+
         <div className="border border-success-subtle border-2 rounded p-1 mb-2">
           <h2>Aggiungi la tua recensione</h2>
           {AddReview(movie.id)}

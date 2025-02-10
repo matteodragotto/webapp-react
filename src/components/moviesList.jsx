@@ -1,7 +1,6 @@
 import { useGlobalContext } from "../context/GlobalContext"
 import { useEffect } from "react"
 import MovieCard from "./MovieCard"
-import { useNavigate } from "react-router-dom"
 
 
 const MoviesList = () => {
