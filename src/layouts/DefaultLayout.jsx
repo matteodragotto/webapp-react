@@ -5,7 +5,7 @@ const DefaultLayout = () => {
     <>
       <header className="d-flex">
         <div className="logo">
-          <a href="/"><img src="../public/img/boolmovies.png" alt="" /></a>
+          <a href="/"><img src="../img/boolmovies.png" alt="boolmovies" /></a>
         </div>
       </header>
       <main className="container my-5">

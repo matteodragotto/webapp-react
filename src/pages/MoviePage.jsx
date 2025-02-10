@@ -14,9 +14,9 @@ const MoviePage = () => {
       return <p className="border">Nessuna recensione disponibile.</p>;
     }
 
-    return reviews.map((review) => (
-      <div key={review.id} className="border border-success-subtle border-2 rounded p-1">
-        <p className="fw-bold">{review.name}</p>
+    return reviews.map(review => (
+      <div key={review.id} className="border border-success-subtle border-2 rounded p-1 mb-2">
+        <p className="fw-bold">- {review.name}</p>
         <p>{review.text}</p>
         <p className="m-0">{StarReviews(review.vote)}</p>
       </div>
