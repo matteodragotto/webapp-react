@@ -3,6 +3,7 @@ import { GlobalProvider } from "./context/GlobalContext"
 import DefaultLayout from "./layouts/DefaultLayout"
 import HomePage from "./pages/HomePage"
 import MoviePage from "./pages/MoviePage"
+import Error404 from "./pages/Error404"
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
           <Route Component={DefaultLayout} >
             <Route path="/" Component={HomePage} />
             <Route path="/recensioni-film/:id" Component={MoviePage} />
+            <Route path="/404" Component={Error404} />
           </Route>
         </Routes>
       </BrowserRouter>

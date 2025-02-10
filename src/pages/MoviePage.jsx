@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useGlobalContext } from "../context/GlobalContext"
-import { useParams, Link } from "react-router-dom"
+import { useParams, Link, useNavigate } from "react-router-dom"
 import StarReviews from "../components/StarReviews"
 import AddReview from "../components/AddReview"
 
@@ -9,6 +9,7 @@ const MoviePage = () => {
 
   const { fetchReviews, reviews, movie } = useGlobalContext()
   const { id } = useParams()
+  const redirect = useNavigate()
 
   const renderReviews = () => {
     if (!reviews || reviews.length === 0) {
@@ -25,7 +26,7 @@ const MoviePage = () => {
     ))
   }
 
-  useEffect(() => fetchReviews(id), [id, reviews.length])
+  useEffect(() => fetchReviews(id, () => redirect('/404')), [id, reviews.length])
 
   return (
     <div className="container my-5">
