@@ -7,7 +7,6 @@ const AddReview = () => {
   const apiUrl = import.meta.env.VITE_API_URL
   const { id } = useParams()
 
-
   const initialFormData = {
     movie_id: id,
     name: '',
@@ -16,8 +15,6 @@ const AddReview = () => {
   }
 
   const [formData, setFormData] = useState(initialFormData)
-
-
 
   const changeHandler = (e) => {
     setFormData({

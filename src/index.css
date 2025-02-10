@@ -48,3 +48,8 @@ img.full-image {
 .reviews {
   margin: 0 auto;
 }
+
+.fa-heart:hover {
+  cursor: pointer;
+  color: #00DF6B;
+}

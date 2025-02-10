@@ -1,14 +1,26 @@
-import { useState } from "react"
 import StarReviews from "./StarReviews"
+import axios from "axios"
+import { useGlobalContext } from "../context/GlobalContext"
+import { useParams } from "react-router-dom"
+
 
 const ReviewsRender = ({ review }) => {
 
-  const [likes, setLikes] = useState(review.likes || 0)
+  const { fetchReviews } = useGlobalContext()
 
-  const likedReviews = { ...review, likes }
+  const apiUrl = import.meta.env.VITE_API_URL
+  const { id } = useParams()
 
-  const likesHandler = () => {
-    setLikes(likes + 1)
+  const likesHandler = (reviewId) => {
+    axios.patch(`${apiUrl}/reviews/${reviewId}`, { reviewId })
+      .then(res => {
+        console.log(res.data);
+        fetchReviews(id)
+
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   }
 
   if (!review) {
@@ -16,10 +28,10 @@ const ReviewsRender = ({ review }) => {
   }
 
   return <>
-    <p className="fw-bold">- {likedReviews.name}</p>
-    <p>{likedReviews.text}</p>
-    <p className="m-0">{StarReviews(likedReviews.vote)}</p>
-    <p><i className="fa-solid fa-heart" onClick={likesHandler}></i>   {likedReviews.likes}</p>
+    <p className="fw-bold">- {review.name}</p>
+    <p>{review.text}</p>
+    <p className="m-0">{StarReviews(review.vote)}</p>
+    <p><i className="fa-solid fa-heart" onClick={() => likesHandler(review.id)}></i> {review.likes}</p>
   </>
 
 }
