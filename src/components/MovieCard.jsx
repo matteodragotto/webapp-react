@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import StarReviews from "./StarReviews"
 
+
 const MovieCard = (movie) => {
   return (
     <div className="card m-3">
@@ -10,6 +11,7 @@ const MovieCard = (movie) => {
         <p><span className="fw-semibold">Genere: </span>{movie.genre}</p>
         <p>{StarReviews(movie.media_voti)}</p>
         <Link className="btn" to={`/recensioni-film/${movie.id}`}>Vedi le recensioni</Link>
+
       </div>
     </div>
   )
