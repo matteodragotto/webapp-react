@@ -16,7 +16,7 @@ const NewMovie = () => {
   }
 
   const [formData, setFormData] = useState(initialFormData)
-  const [thumbnail, setThumbnail] = useState(null)
+  const [thumbnail, setThumbnail] = useState('https://placehold.co/300x200?text=Placeholder+Image&font=roboto')
 
   const changeHandler = (e) => {
     const { value, name } = e.target
