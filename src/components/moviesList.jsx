@@ -12,6 +12,7 @@ const MoviesList = () => {
   const renderMovies = () => {
     return movies.map(movie => (
       <div className="col-4 d-flex" key={movie.id}>
+
         {MovieCard(movie)}
       </div>
     ))
