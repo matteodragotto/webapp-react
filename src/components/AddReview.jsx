@@ -1,11 +1,13 @@
 import { useState } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
+import { useGlobalContext } from "../context/GlobalContext"
 
 
 const AddReview = () => {
   const apiUrl = import.meta.env.VITE_API_URL
   const { id } = useParams()
+  const { fetchReviews } = useGlobalContext()
 
   const initialFormData = {
     movie_id: id,
@@ -30,6 +32,7 @@ const AddReview = () => {
       .then(res => {
         console.log(res.data);
         setFormData(initialFormData)
+        fetchReviews(id)
 
       })
       .catch(err => {

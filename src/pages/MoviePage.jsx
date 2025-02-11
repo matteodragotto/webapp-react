@@ -18,7 +18,7 @@ const MoviePage = () => {
     }
 
     return reviews.map(review => (
-      <div key={review.id} className="border border-success-subtle border-2 rounded p-1 mb-2">
+      <div key={review.id} className="border border-success-subtle border-2 rounded p-2 mb-2">
         <ReviewsRender review={review} />
       </div>
     ))
@@ -46,7 +46,7 @@ const MoviePage = () => {
         {printReviews()}
 
 
-        <div className="border border-success-subtle border-2 rounded p-1 mb-2">
+        <div className="border border-success-subtle border-2 rounded p-2 mb-2">
           <h2>Aggiungi la tua recensione</h2>
           {AddReview(movie.id)}
         </div>

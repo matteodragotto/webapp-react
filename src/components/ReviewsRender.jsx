@@ -31,7 +31,7 @@ const ReviewsRender = ({ review }) => {
     <p className="fw-bold">- {review.name}</p>
     <p>{review.text}</p>
     <p className="m-0">{StarReviews(review.vote)}</p>
-    <p><i className="fa-solid fa-heart" onClick={() => likesHandler(review.id)}></i> {review.likes}</p>
+    <p className="mt-3 mb-0"><i className="fa-solid fa-heart" onClick={() => likesHandler(review.id)}></i> {review.likes}</p>
   </>
 
 }
