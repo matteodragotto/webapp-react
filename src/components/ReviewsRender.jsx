@@ -27,12 +27,12 @@ const ReviewsRender = ({ review }) => {
     return <p className="border">Nessuna recensione disponibile.</p>;
   }
 
-  return <>
+  return <div className="review-card mx-1 border border-success-subtle border-1 rounded p-2">
     <p className="fw-bold">- {review.name}</p>
     <p>{review.text}</p>
     <p className="m-0">{StarReviews(review.vote)}</p>
     <p className="mt-3 mb-0"><i className="fa-solid fa-heart" onClick={() => likesHandler(review.id)}></i> {review.likes}</p>
-  </>
+  </div>
 
 }
 

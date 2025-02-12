@@ -17,14 +17,14 @@ const MoviePage = () => {
   const printReviews = () => {
 
     if (!reviews || reviews.length === 0) {
-      return <div className="border border-success-subtle border-2 rounded p-2 mb-2">
+      return <div className="border border-success-subtle border-1 rounded p-2 mb-2">
         <p>Nessuna recensione disponibile.</p>
       </div>
 
     }
 
     return reviews.map(review => (
-      <div key={review.id} className="border border-success-subtle border-2 rounded p-2 mx-2 col-4">
+      <div key={review.id} className="col-4 mb-3">
         <ReviewsRender review={review} />
       </div>
     ))
@@ -40,7 +40,7 @@ const MoviePage = () => {
   useEffect(() => fetchReviews(id, () => redirect('/404')), [id, reviews.length])
 
   return (
-    <div className="container my-5">
+    <div className="container my-5 p-0">
       <div className="d-flex mb-3">
         {isLoading ? (
           <div className="spinner-border" role="status">
@@ -68,7 +68,7 @@ const MoviePage = () => {
       </div>
 
       <h2 className="text-center">Recensioni</h2>
-      <div className="reviews d-flex justify-content-around mb-3">
+      <div className="row mb-3" >
         {isLoading ? (
           <p>Caricamento recensioni...</p>
         ) : (
