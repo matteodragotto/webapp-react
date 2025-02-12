@@ -17,7 +17,10 @@ const MoviePage = () => {
   const printReviews = () => {
 
     if (!reviews || reviews.length === 0) {
-      return <p className="border">Nessuna recensione disponibile.</p>;
+      return <div className="border border-success-subtle border-2 rounded p-2 mb-2">
+        <p>Nessuna recensione disponibile.</p>
+      </div>
+
     }
 
     return reviews.map(review => (
@@ -49,7 +52,11 @@ const MoviePage = () => {
           <span className="fw-semibold">Riassunto:</span>
           <p>{movie.abstract}</p>
           <Link className="btn btn-light" to={'/'}>Torna indietro</Link>
-          <button className="btn btn-light mx-3" onClick={() => deleteMovie(id)}>Elimina film</button>
+          <button className="btn btn-light mx-3" onClick={() => {
+            if (window.confirm("Sei sicuro di voler eliminare questo film?")) {
+              deleteMovie(id);
+            }
+          }}>Elimina film</button>
         </div>
       </div>
       <div className="reviews w-50">
