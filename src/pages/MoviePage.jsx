@@ -10,7 +10,7 @@ const MoviePage = () => {
 
   const apiUrl = import.meta.env.VITE_API_URL
 
-  const { fetchReviews, reviews, movie } = useGlobalContext()
+  const { fetchReviews, reviews, movie, isLoading } = useGlobalContext()
   const { id } = useParams()
   const redirect = useNavigate()
 
@@ -42,41 +42,46 @@ const MoviePage = () => {
   return (
     <div className="container my-5">
       <div className="d-flex mb-3">
-        <img className="full-image" src={movie.image} alt={movie.title} />
-        <div className="container mx-3 text-center">
-
-          <h2><span className="fw-semibold">Titolo: </span> {movie.title}</h2>
-          <p><span className="fw-semibold">Regista: </span> {movie.director}</p>
-          <p><span className="fw-semibold">Genere: </span>{movie.genre}</p>
-          <p><span className="fw-semibold">Anno di uscita: </span>{movie.release_year}</p>
-          <span className="fw-semibold">Riassunto:</span>
-          <p>{movie.abstract}</p>
-          <Link className="btn btn-light" to={'/'}>Torna indietro</Link>
-          <button className="btn btn-light mx-3" onClick={() => {
-            if (window.confirm("Sei sicuro di voler eliminare questo film?")) {
-              deleteMovie(id);
-            }
-          }}>Elimina film</button>
-        </div>
+        {isLoading ? (
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Caricamento...</span>
+          </div>
+        ) : (
+          <>
+            <img className="full-image" src={movie.image} alt={movie.title} />
+            <div className="container mx-3 text-center">
+              <h2><span className="fw-semibold">Titolo: </span> {movie.title}</h2>
+              <p><span className="fw-semibold">Regista: </span> {movie.director}</p>
+              <p><span className="fw-semibold">Genere: </span>{movie.genre}</p>
+              <p><span className="fw-semibold">Anno di uscita: </span>{movie.release_year}</p>
+              <span className="fw-semibold">Riassunto:</span>
+              <p>{movie.abstract}</p>
+              <Link className="btn btn-light" to={'/'}>Torna indietro</Link>
+              <button className="btn btn-light mx-3" onClick={() => {
+                if (window.confirm("Sei sicuro di voler eliminare questo film?")) {
+                  deleteMovie(id);
+                }
+              }}>Elimina film</button>
+            </div>
+          </>
+        )}
       </div>
+
       <div className="reviews w-50">
         <h2 className="text-center">Recensioni</h2>
-        {printReviews()}
-
+        {isLoading ? (
+          <p>Caricamento recensioni...</p>
+        ) : (
+          printReviews()
+        )}
 
         <div className="border border-success-subtle border-2 rounded p-2 mb-2">
           <h2>Aggiungi la tua recensione</h2>
           {AddReview(movie.id)}
         </div>
-
       </div>
-
-
-
-
-
-    </div >
-  )
+    </div>
+  );
 }
 
 export default MoviePage
