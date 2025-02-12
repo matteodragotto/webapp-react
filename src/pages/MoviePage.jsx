@@ -24,7 +24,7 @@ const MoviePage = () => {
     }
 
     return reviews.map(review => (
-      <div key={review.id} className="border border-success-subtle border-2 rounded p-2 mb-2">
+      <div key={review.id} className="border border-success-subtle border-2 rounded p-2 mx-2 col-4">
         <ReviewsRender review={review} />
       </div>
     ))
@@ -67,18 +67,17 @@ const MoviePage = () => {
         )}
       </div>
 
-      <div className="reviews w-50">
-        <h2 className="text-center">Recensioni</h2>
+      <h2 className="text-center">Recensioni</h2>
+      <div className="reviews d-flex justify-content-around mb-3">
         {isLoading ? (
           <p>Caricamento recensioni...</p>
         ) : (
           printReviews()
         )}
-
-        <div className="border border-success-subtle border-2 rounded p-2 mb-2">
-          <h2>Aggiungi la tua recensione</h2>
-          {AddReview(movie.id)}
-        </div>
+      </div>
+      <div className="border border-success-subtle border-2 rounded p-2 mb-2">
+        <h2>Aggiungi la tua recensione</h2>
+        {AddReview(movie.id)}
       </div>
     </div>
   );
