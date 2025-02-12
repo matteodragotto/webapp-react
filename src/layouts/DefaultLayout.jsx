@@ -8,7 +8,7 @@ const DefaultLayout = () => {
           <a href="/"><img src="../img/boolmovies.png" alt="boolmovies" /></a>
         </div>
         <div>
-          <Link className="btn mx-5" to={`/movies/create`}>Aggiungi un film</Link>
+          <Link className="btn btn-light px-5 py-2 mx-5" to={`/movies/create`}>Aggiungi un film</Link>
         </div>
 
       </header>

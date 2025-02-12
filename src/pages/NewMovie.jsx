@@ -45,7 +45,7 @@ const NewMovie = () => {
   }
 
   return (
-    <div className="container my-5">
+    <div className="container my-5 text-center">
       <form action='#' onSubmit={submitHandler}>
         <div className="form-group">
           <label>Titolo</label>
@@ -112,7 +112,7 @@ const NewMovie = () => {
           <img src={thumbnail} alt="preview" />
 
         </div>
-        <button className="btn btn-primary" type="submit">Pubblica il film</button>
+        <button className="btn btn-light my-3" type="submit">Pubblica il film</button>
 
       </form>
     </div>

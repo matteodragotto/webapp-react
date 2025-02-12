@@ -75,7 +75,7 @@ const AddReview = () => {
           onChange={changeHandler}
         />
       </div>
-      <button className="btn btn-primary" type="submit">Pubblica recensione</button>
+      <button className="btn btn-light" type="submit">Pubblica recensione</button>
 
     </form>
 

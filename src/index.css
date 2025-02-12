@@ -4,31 +4,25 @@
   box-sizing: border-box;
 }
 
+
 body {
   background-color: #001632;
+}
+
+.btn {
+  background-color: #00DF6B;
+  color: white;
+  border: none;
 }
 
 header {
   padding: 20px;
   font-family: "Bebas Neue", serif;
-
-  .btn {
-    color: white;
-  }
-
 }
 
 main {
   font-family: "Roboto Condensed", serif;
   color: white;
-}
-
-.btn {
-  background-color: #00DF6B;
-
-  &:hover {
-    opacity: 0.8;
-  }
 }
 
 .card {
@@ -39,6 +33,17 @@ main {
     height: 100%;
     object-fit: fill;
     top: 0;
+  }
+
+  .card-body {
+    background-color: #001632;
+    color: white;
+  }
+
+  .btn {
+    background-color: #00DF6B;
+    color: white;
+    border: none;
   }
 }
 
@@ -54,4 +59,17 @@ img.full-image {
 .fa-heart:hover {
   cursor: pointer;
   color: #00DF6B;
+}
+
+form {
+  .btn {
+    background-color: #00DF6B;
+    color: white;
+    border: none;
+  }
+
+  img {
+    max-width: 200px;
+    max-height: 300px;
+  }
 }

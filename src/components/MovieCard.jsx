@@ -10,7 +10,7 @@ const MovieCard = (movie) => {
         <p><span className="fw-semibold fs-5">Titolo: </span> {movie.title}</p>
         <p><span className="fw-semibold">Genere: </span>{movie.genre}</p>
         <p>{StarReviews(movie.media_voti)}</p>
-        <Link className="btn" to={`/recensioni-film/${movie.id}`}>Vedi le recensioni</Link>
+        <Link className="btn btn-light" to={`/recensioni-film/${movie.id}`}>Vedi le recensioni</Link>
 
       </div>
     </div>

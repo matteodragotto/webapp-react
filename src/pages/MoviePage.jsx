@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useGlobalContext } from "../context/GlobalContext"
 import { useParams, Link, useNavigate } from "react-router-dom"
+import axios from "axios"
 import AddReview from "../components/AddReview"
 import ReviewsRender from "../components/ReviewsRender"
 
 
 const MoviePage = () => {
+
+  const apiUrl = import.meta.env.VITE_API_URL
 
   const { fetchReviews, reviews, movie } = useGlobalContext()
   const { id } = useParams()
@@ -24,6 +27,13 @@ const MoviePage = () => {
     ))
   }
 
+  const deleteMovie = (id) => {
+    axios.delete(`${apiUrl}/${id}`)
+      .then(() => redirect('/'))
+      .catch((err) => console.log(err))
+  }
+
+
   useEffect(() => fetchReviews(id, () => redirect('/404')), [id, reviews.length])
 
   return (
@@ -38,7 +48,8 @@ const MoviePage = () => {
           <p><span className="fw-semibold">Anno di uscita: </span>{movie.release_year}</p>
           <span className="fw-semibold">Riassunto:</span>
           <p>{movie.abstract}</p>
-          <Link className="btn btn-primary" to={'/'}>Torna indietro</Link>
+          <Link className="btn btn-light" to={'/'}>Torna indietro</Link>
+          <button className="btn btn-light mx-3" onClick={() => deleteMovie(id)}>Elimina film</button>
         </div>
       </div>
       <div className="reviews w-50">

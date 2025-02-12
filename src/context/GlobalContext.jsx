@@ -2,6 +2,7 @@ import axios from "axios"
 import { createContext, useContext, useState } from "react"
 
 
+
 const GlobalContext = createContext()
 
 const GlobalProvider = ({ children }) => {
@@ -36,6 +37,7 @@ const GlobalProvider = ({ children }) => {
         if (err.status === 404) redirect()
       })
   }
+
 
   const value = {
     fetchMovies,
